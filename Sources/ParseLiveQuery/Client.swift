@@ -164,7 +164,7 @@ extension Client {
                 NSLog("ParseLiveQuery: Warning: The client was explicitly disconnected! You must explicitly call .reconnect() in order to process your subscriptions.")
             }
         }
-        
+
         return handler
     }
 
@@ -233,7 +233,11 @@ extension Client {
         guard socket == nil || !isConnecting else { return }
         socket?.disconnect()
         socket = {
-            let socket = WebSocket(url: host)
+
+            var request = URLRequest(url: host)
+            request.timeoutInterval = 5
+            request.allHTTPHeaderFields?["Host"] = "\(host.host!)"
+            let socket = WebSocket(request: request)
             socket.delegate = self
             socket.callbackQueue = queue
             socket.connect()
