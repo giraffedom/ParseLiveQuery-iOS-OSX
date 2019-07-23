@@ -236,6 +236,7 @@ extension Client {
 
             var request = URLRequest(url: host)
             request.timeoutInterval = 5
+            request.allHTTPHeaderFields = [:]
             request.allHTTPHeaderFields?["Host"] = "\(host.host!)"
             let socket = WebSocket(request: request)
             socket.delegate = self
