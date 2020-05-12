@@ -20,8 +20,10 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
         if let className = queryState?.value(forKey: "parseClassName") {
             self["className"] = className as? Value
         }
-        if let conditions: [String:AnyObject] = queryState?.value(forKey: "conditions") as? [String:AnyObject] {
+        if let conditions = queryState?.value(forKey: "conditions") as? [String:AnyObject] {
             self["where"] = conditions.encodedQueryDictionary as? Value
+        } else {
+            self["where"] = [:] as? Value
         }
     }
 }
@@ -30,7 +32,22 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value: AnyObject {
     var encodedQueryDictionary: Dictionary {
         var encodedQueryDictionary = Dictionary()
         for (key, val) in self {
-            if let dict = val as? [String:AnyObject] {
+            if let array = val as? [PFQuery] {
+                var queries:[Value] = []
+                for query in array {
+                    let queryState = query.value(forKey: "state") as AnyObject?
+                    if let conditions: [String:AnyObject] = queryState?.value(forKey: "conditions") as? [String:AnyObject], let encoded = conditions.encodedQueryDictionary as? Value {
+                        queries.append(encoded)
+                    }
+                }
+                encodedQueryDictionary[key] = queries as? Value
+            } else if let geoPoints = val as? [PFGeoPoint] {
+                var points:[Value] = []
+                for point in geoPoints {
+                    points.append(point.encodedDictionary as! Value)
+                }
+                encodedQueryDictionary[key] = points as? Value
+            } else if let dict = val as? [String:AnyObject] {
                 encodedQueryDictionary[key] = dict.encodedQueryDictionary as? Value
             } else if let geoPoint = val as? PFGeoPoint {
                 encodedQueryDictionary[key] = geoPoint.encodedDictionary as? Value
@@ -55,7 +72,7 @@ extension PFGeoPoint {
 }
 
 fileprivate extension Formatter {
-    fileprivate static let iso8601: DateFormatter = {
+    static let iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -66,7 +83,7 @@ fileprivate extension Formatter {
 }
 
 fileprivate extension Date {
-    fileprivate var encodedString: String {
+    var encodedString: String {
         return Formatter.iso8601.string(from: self)
     }
 }

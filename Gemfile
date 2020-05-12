@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
+gem 'jazzy', '~> 0.11.1'
 gem 'xcpretty'
-# xcode8 compat
-gem 'cocoapods', '1.5.3'
-gem 'jazzy'
+gem 'cocoapods', '~> 1.8.4'

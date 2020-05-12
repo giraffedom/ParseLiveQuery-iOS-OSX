@@ -2,14 +2,44 @@
 
 ### Master
 
-[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.6.0...master)
+[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.7.1...master)
+
+### 2.7.1
+
+[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.7.0...2.7.1)
+
+- Bump Parse SDK to v1.18.0
+([#226](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/226)), thanks to [Nathan Kellert](https://github.com/noobs2ninjas)
+
+- Remove Bolts-ObjC as dependency
+([#223](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/223)), thanks to [Joe Szymanski](https://github.com/JoeSzymanski)
+
+### 2.7.0
+
+[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.6.1...2.7.0)
+
+- Build compatibility with Xcode 11 and iOS 13 ([#210](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/210)), thanks to [Nathan Kellert](https://github.com/noobs2ninjas) & [Darren Black](https://github.com/drdaz)
+- Bump Parse SDK to v1.17.3 ([#210](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/210)), thanks to [Nathan Kellert](https://github.com/noobs2ninjas) & [Darren Black](https://github.com/drdaz)
+- Moves to Swift 5 ([#210](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/210)), thanks to [Nathan Kellert](https://github.com/noobs2ninjas) & [Darren Black](https://github.com/drdaz)
+- Bump Bolts-Swift dependency to v1.5.0 ([#210](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/210)), thanks to [Nathan Kellert](https://github.com/noobs2ninjas) & [Darren Black](https://github.com/drdaz)
+- Properly encode Array of GeoPoints ([#208](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/208)), thanks to [Diamond Lewis](https://github.com/dplewis)
+
+### 2.6.1
+
+[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.6.0...2.6.1)
+
+**This will be the final release for Swift 4.2**
+
+- Fix #190, thanks to [rostopira](https://github.com/rostopira)
+- Bumps Parse SDK to 1.17.1
+- Bumps Starscream to 3.0.5
 
 ### 2.6.0
 
-[Full Changelog](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/compare/2.5.0...2.6.0)
-
-- Added `@objc` to compile with objective-c.  Thanks to [Junya Yamaguchi](https://github.com/junya100) [(#184)](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/184)
-- Encode Date object with `__type: Date`. Thanks to [anafang](https://github.com/ananfang) [#186](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/186)
+- Fixed issue where no "where" property sent when no constraints where added to a query. This is required by the LiveQuery protocol. 
+- Support for .or queries. Fixes #156, #47, and #85. Allows orQuery to be encoded without throwing. Thanks to [dblythy](https://github.com/dblythy)
+- Added @objc to compile with objective-c .  Thanks to [Junya Yamaguchi](https://github.com/junya100) [(#184)](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/184)
+- Encode Date object with __type: Date. Thanks to [anafang](https://github.com/ananfang) [#186](https://github.com/parse-community/ParseLiveQuery-iOS-OSX/pull/186)
 
 ### 2.5.0
 
