@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1120"
+   LastUpgradeVersion = "1220"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F5A9BFB61BE0248D00E78326"
-               BuildableName = "ParseLiveQuery.framework"
-               BlueprintName = "ParseLiveQuery-iOS"
+               BlueprintIdentifier = "708836712561F502005B32F0"
+               BuildableName = "ParseLiveQuery_watchOS.framework"
+               BlueprintName = "ParseLiveQuery-watchOS"
                ReferencedContainer = "container:ParseLiveQuery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,15 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F5A9BFB61BE0248D00E78326"
-            BuildableName = "ParseLiveQuery.framework"
-            BlueprintName = "ParseLiveQuery-iOS"
-            ReferencedContainer = "container:ParseLiveQuery.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -59,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F5A9BFB61BE0248D00E78326"
-            BuildableName = "ParseLiveQuery.framework"
-            BlueprintName = "ParseLiveQuery-iOS"
+            BlueprintIdentifier = "708836712561F502005B32F0"
+            BuildableName = "ParseLiveQuery_watchOS.framework"
+            BlueprintName = "ParseLiveQuery-watchOS"
             ReferencedContainer = "container:ParseLiveQuery.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
